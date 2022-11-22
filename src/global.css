@@ -35,14 +35,15 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: var(--fsz-16);
-  line-height: 1.4;
   background-color: var(--gray-600);
+  color: var(--gray-300);
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fsz-16);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 :focus {
-  outline: transparent;
   box-shadow: 0 0 0 2px var(--purple-100);
+  outline: transparent;
 }
