@@ -18,7 +18,7 @@ export function TaskList() {
       </header>
 
       <form action="">
-        <ul>
+        <ul className={styles.list}>
           <li>
             <Task />
           </li>

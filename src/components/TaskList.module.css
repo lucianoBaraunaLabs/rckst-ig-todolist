@@ -33,3 +33,15 @@
   font-weight: 700;
   padding: 0.125rem var(--size-05);
 }
+
+.list {
+  list-style: none;
+}
+
+.list li {
+  margin-bottom: 0.750rem;
+}
+
+.list li:last-child {
+  margin-bottom: 0;
+}
