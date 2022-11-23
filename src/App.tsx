@@ -1,12 +1,20 @@
-
 import { InputTaskAdd } from './components/InputTaskAdd';
+import { TaskList } from './components/TaskList';
+
+import todoLogo from './assets/logo.svg'
+import styles from './App.module.css'
 
 export function App () {
   return (
     <>
-    <InputTaskAdd />
-    <p>Hello world</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus incidunt pariatur ab unde! Dignissimos eligendi ipsa labore quibusdam! Explicabo dolor ab quia corrupti sint ea aliquid labore nulla facilis qui.</p>
+      <header className={styles.header}>
+        <img src={todoLogo} alt="Todo" />
+        <InputTaskAdd />
+      </header>
+
+      <main className={styles.content}>
+        <TaskList />
+      </main>
 
     </>
   )
