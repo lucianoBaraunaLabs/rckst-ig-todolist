@@ -7,7 +7,7 @@ export function InputTaskAdd() {
       <input className={styles.input} type="text" placeholder='olá mundo' />
       <button className={styles.button} type='submit'>
         Criar
-        <PlusCircle size={16} />
+        <PlusCircle size='1rem' />
       </button>
     </form>
   )
