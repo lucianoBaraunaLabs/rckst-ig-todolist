@@ -2,7 +2,15 @@
 import styles from './TaskList.module.css'
 import { Task } from './Task';
 
-export function TaskList() {
+type TaskListProps = {
+  todos: {
+    id: string,
+    content: string,
+    isChecked: boolean
+  }[]
+}
+
+export function TaskList({ todos } : TaskListProps) {
   return (
     <section className={styles.wrap}>
 
@@ -19,12 +27,13 @@ export function TaskList() {
 
       <form action="">
         <ul className={styles.list}>
-          <li>
-            <Task />
-          </li>
-          <li>
-            <Task />
-          </li>
+          {todos.map((todo) => {
+            return (
+              <li key={todo.id}>
+                <Task />
+              </li>
+            )
+          })}
         </ul>
       </form>
 
