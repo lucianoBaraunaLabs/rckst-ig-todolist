@@ -10,7 +10,7 @@ interface TaskListProps {
 }
 
 export function TaskList({ todosList, onDeleteTodo } : TaskListProps) {
-  const isEmpetyTask = todosList.length <= 0;
+  const isEmptyTask = todosList.length <= 0;
 
   function handleDeleteTodo(todoId: string) {
     onDeleteTodo(todoId)
@@ -30,9 +30,9 @@ export function TaskList({ todosList, onDeleteTodo } : TaskListProps) {
         </p>
       </header>
 
-      {isEmpetyTask && <EmptyState />}
+      {isEmptyTask && <EmptyState />}
 
-      {!isEmpetyTask && (
+      {!isEmptyTask && (
         <ul className={styles.list}>
           {todosList.map((todo) => {
             const wrapClass = todo.isChecked ? styles.taskItemChecked : styles.taskItem
