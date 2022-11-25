@@ -52,6 +52,11 @@ export function App () {
     })
   }
 
+  function deleteTodo(todoDeleted: string) {
+    const todoUpdated = todos.filter((todo) => todo.id !== todoDeleted)
+    setTodos(todoUpdated)
+  }
+
 
   return (
     <>
@@ -61,7 +66,10 @@ export function App () {
       </header>
 
       <main className={styles.content}>
-        <TaskList todosList={todos} />
+        <TaskList
+          todosList={todos}
+          onDeleteTodo={deleteTodo}
+        />
       </main>
 
     </>
