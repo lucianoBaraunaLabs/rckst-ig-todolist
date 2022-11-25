@@ -4,6 +4,13 @@ import { TaskList } from './components/TaskList';
 
 import todoLogo from './assets/logo.svg'
 import styles from './App.module.css'
+import { useState } from 'react';
+
+export interface Todos {
+  id: string,
+  content: string,
+  isChecked: boolean
+}
 
 const apiTodos = [
   {
@@ -29,16 +36,34 @@ const apiTodos = [
 ]
 
 
+
+
 export function App () {
+  const [todos, setTodos] = useState<Todos[]>(apiTodos)
+
+  function createTodo (todoCreated:string) {
+    setTodos((state) => {
+      return [
+        ...state,
+        {
+          id: uuidv4(),
+          content: todoCreated,
+          isChecked: false
+        }
+      ]
+    })
+  }
+
+
   return (
     <>
       <header className={styles.header}>
         <img src={todoLogo} alt="Todo" />
-        <InputTaskAdd />
+        <InputTaskAdd onCreateTodo={createTodo} />
       </header>
 
       <main className={styles.content}>
-        <TaskList todos={apiTodos} />
+        <TaskList todos={todos} />
       </main>
 
     </>
