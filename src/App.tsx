@@ -52,7 +52,6 @@ export function App () {
       ]
     })
     $inputTaskAdd?.focus()
-
   }
 
   function deleteTodo(todoDeleted: string) {

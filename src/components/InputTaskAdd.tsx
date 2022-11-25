@@ -12,7 +12,6 @@ export function InputTaskAdd({ onCreateTodo } : InputTaskAddProps) {
   function handleCreateTodo(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     onCreateTodo(newTodoValue)
-    setNewTodoValue('')
   }
 
   function handleNewTodoChange(event: ChangeEvent<HTMLInputElement>) {
