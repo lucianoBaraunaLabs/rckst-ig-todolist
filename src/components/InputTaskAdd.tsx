@@ -12,6 +12,7 @@ export function InputTaskAdd({ onCreateTodo } : InputTaskAddProps) {
   function handleCreateTodo(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     onCreateTodo(newTodoValue)
+    setNewTodoValue('')
   }
 
   function handleNewTodoChange(event: ChangeEvent<HTMLInputElement>) {
@@ -26,6 +27,7 @@ export function InputTaskAdd({ onCreateTodo } : InputTaskAddProps) {
   return (
     <form onSubmit={handleCreateTodo} className={styles.wrap}>
       <input
+        id='inputTaskAdd'
         className={styles.input}
         type="text"
         placeholder='Adicione uma nova tarefa'
