@@ -1,0 +1,47 @@
+.wrap {
+
+}
+
+.header {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 1.500rem;
+}
+
+.taskCreated,
+.taskCompleted {
+  align-items: center;
+  display: flex;
+  font-size: var(--size-fsz-14);
+  font-weight: 700;
+  gap: var(--size-05);
+}
+
+.taskCreated {
+  color: var(--blue-100);
+}
+
+.taskCompleted {
+  color: var(--purple-100);
+}
+
+.count {
+  background-color: var(--gray-400);
+  border-radius: 9999px;
+  color: var(--gray-100);
+  font-size: var(--fsz-12);
+  font-weight: 700;
+  padding: 0.125rem var(--size-05);
+}
+
+.list {
+  list-style: none;
+}
+
+.list li {
+  margin-bottom: 0.750rem;
+}
+
+.list li:last-child {
+  margin-bottom: 0;
+}
