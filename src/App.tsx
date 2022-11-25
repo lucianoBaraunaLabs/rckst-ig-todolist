@@ -6,7 +6,7 @@ import todoLogo from './assets/logo.svg'
 import styles from './App.module.css'
 import { useState } from 'react';
 
-export interface Todos {
+export interface Todo {
   id: string,
   content: string,
   isChecked: boolean
@@ -36,10 +36,8 @@ const apiTodos = [
 ]
 
 
-
-
 export function App () {
-  const [todos, setTodos] = useState<Todos[]>(apiTodos)
+  const [todos, setTodos] = useState<Todo[]>(apiTodos)
 
   function createTodo (todoCreated:string) {
     setTodos((state) => {
@@ -63,7 +61,7 @@ export function App () {
       </header>
 
       <main className={styles.content}>
-        <TaskList todos={todos} />
+        <TaskList todosList={todos} />
       </main>
 
     </>

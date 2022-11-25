@@ -45,3 +45,93 @@
 .list li:last-child {
   margin-bottom: 0;
 }
+
+
+.taskItem,
+.taskItemChecked {
+  align-items: center;
+  background-color: var(--gray-500);
+  border: solid 1px var(--gray-400);
+  border-radius: var(--bd-radius-05);
+  color: var(--gray-100);
+  display: flex;
+  gap: 0.750rem;
+  padding: var(--size-1);
+}
+
+
+.checkTask {
+
+}
+
+.checkTask input[type="checkbox"] {
+  /* position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; */
+}
+
+:is(.icoUnchecked, .icoChecked) {
+  color: var(--ico-cl, inherit);
+}
+
+:is(.icoUnchecked, .icoChecked):hover {
+  cursor: pointer;
+}
+
+.icoUnchecked {
+  --ico-cl: var(--blue-100);
+}
+
+.icoUnchecked:hover {
+  --ico-cl: var(--blue-900);
+}
+
+.icoChecked {
+  --ico-cl: var(--gray-100);
+  --ico-bg: var(--purple-900);
+
+  background-color: var(--ico-bg);
+  border-radius: 50%;
+}
+
+.icoChecked:hover {
+  --ico-bg: var(--purple-100);
+}
+
+.label {
+  --label-cl: var(--gray-100);
+
+  color: var(--label-cl);
+  flex: 1;
+  font-size: var(--fsz-14);
+}
+
+
+.buttonDelete {
+  --btn-delete-cl: var(--gray-300);
+
+  background: var(--btn-delete-bg, none);
+  border-radius: var(--bd-radius-02);
+  border: none;
+  color: var(--btn-delete-cl);
+  padding: var(--size-05);
+}
+
+.buttonDelete:hover {
+  --btn-delete-cl: var(--red-100);
+  --btn-delete-bg: var(--gray-400);
+
+  cursor: pointer;
+}
+
+/* Variations */
+
+.taskItemChecked .label {
+  --label-cl: var(--gray-300);
+
+  text-decoration: line-through;
+}
