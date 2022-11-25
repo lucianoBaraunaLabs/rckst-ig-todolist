@@ -13,6 +13,20 @@ interface TaskListProps {
 
 export function TaskList({ todosList, onDeleteTask, onCheckTask } : TaskListProps) {
   const isEmptyTask = todosList.length <= 0;
+  const countTasks = todosList.reduce((previousValue, todoCurrent) => {
+    if(todoCurrent.isChecked) {
+      return {
+        ...previousValue,
+        completed: ++previousValue.completed,
+      }
+    }
+
+    return {
+      ...previousValue,
+      created: todosList.length,
+    }
+
+  },{created: 0, completed: 0})
 
   function handleDeleteTask(todoId: string) {
     onDeleteTask(todoId)
@@ -28,11 +42,11 @@ export function TaskList({ todosList, onDeleteTask, onCheckTask } : TaskListProp
       <header className={styles.header}>
         <p className={styles.taskCreated}>
           Tarefas criadas
-          <span className={styles.count}>5</span>
+          <span className={styles.count}>{countTasks.created}</span>
         </p>
         <p className={styles.taskCompleted}>
           Concluídas
-          <span className={styles.count}>2 de 5</span>
+          <span className={styles.count}>{countTasks.completed} de {countTasks.created}</span>
         </p>
       </header>
 
