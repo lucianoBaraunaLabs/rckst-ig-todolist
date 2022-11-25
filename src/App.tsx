@@ -68,7 +68,8 @@ export function App () {
       <main className={styles.content}>
         <TaskList
           todosList={todos}
-          onDeleteTodo={deleteTodo}
+          onDeleteTask={deleteTodo}
+          // onUpdateTodo=
         />
       </main>
 
