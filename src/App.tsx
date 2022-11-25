@@ -38,7 +38,6 @@ const apiTodos = [
 
 export function App () {
   const [todos, setTodos] = useState<Todo[]>(apiTodos)
-  const $inputTaskAdd = document.getElementById('inputTaskAdd')
 
   function createTodo (todoCreated:string) {
     setTodos((state) => {
@@ -51,14 +50,11 @@ export function App () {
         }
       ]
     })
-    $inputTaskAdd?.focus()
-
   }
 
   function deleteTodo(todoDeleted: string) {
     const todoUpdated = todos.filter((todo) => todo.id !== todoDeleted)
     setTodos(todoUpdated)
-    $inputTaskAdd?.focus()
   }
 
   function checkTodo(todoCheck: string) {
@@ -79,7 +75,7 @@ export function App () {
   return (
     <>
       <header className={styles.header}>
-        <img src={todoLogo} alt="Todo logotipo" />
+        <img src={todoLogo} alt="Todo" />
         <InputTaskAdd onCreateTodo={createTodo} />
       </header>
 
