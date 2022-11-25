@@ -7,29 +7,39 @@ import { useState } from "react";
 
 interface TaskProps {
   todo: Todo,
-  onDeleteTaks: (id: string) => void
+  onDeleteTask: (id: string) => void,
+  onCheckTask: (id: string) => void
 }
 
-export function Task({ todo, onDeleteTaks }: TaskProps) {
+export function Task({ todo, onDeleteTask, onCheckTask }: TaskProps) {
   const [isChecked, setIsChecked] = useState(todo.isChecked)
   const wrapClass = todo.isChecked ? styles.wrapChecked : styles.wrap
+  const checkTitleText = isChecked ? 'Desmarcar como concluída' : 'Marcar como concluída'
+
+  function handleCheck(todoId: string) {
+    setIsChecked(!isChecked)
+    onCheckTask(todoId)
+  }
 
   function handleDelete(taskId: string) {
-    onDeleteTaks(taskId)
+    onDeleteTask(taskId)
   }
 
   return (
     <article className={wrapClass}>
-      <div className={styles.checkTask}>
-        <input type="checkbox" name="chektask" id={todo.id} title="Marcar como concluída" checked={isChecked} onChange={() => setIsChecked(!isChecked)}/>
+      <button
+        className={styles.checkTask}
+        title={checkTitleText}
+        onClick={() => handleCheck(todo.id)}
+      >
         {
           isChecked
             ? <Check size="1rem" className={styles.icoChecked} />
             : <Circle size="1rem" className={styles.icoUnchecked} />
-          }
-      </div>
+        }
+      </button>
 
-      <label className={styles.label} htmlFor={todo.id}>{todo.content}</label>
+      <p className={styles.label}>{todo.content}</p>
 
       <button
         className={styles.buttonDelete}

@@ -25,7 +25,7 @@ const apiTodos = [
   },
   {
     id: uuidv4(),
-    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis possimus natus fuga quibusdam impedit, debitis illum! Eligendi, alias reprehenderit cupiditate voluptatum illum earum officiis quisquam dolorum quidem officia mollitia maxime.',
+    content: 'Levar paçoca e jujuba para passear',
     isChecked: false
   },
   {
@@ -57,6 +57,20 @@ export function App () {
     setTodos(todoUpdated)
   }
 
+  function checkTodo(todoCheck: string) {
+    const todoUpdated = todos.map((task) => {
+      if (task.id === todoCheck) {
+        return {
+          ...task,
+          isChecked: !task.isChecked
+        }
+      }
+      return {...task}
+    })
+
+    setTodos(todoUpdated)
+  }
+
 
   return (
     <>
@@ -69,7 +83,7 @@ export function App () {
         <TaskList
           todosList={todos}
           onDeleteTask={deleteTodo}
-          // onUpdateTodo=
+          onCheckTask={checkTodo}
         />
       </main>
 

@@ -11,20 +11,27 @@
 }
 
 .checkTask {
-
+  position: relative;
+  background: none;
+  padding: 0;
+  border: none;
 }
 
 .checkTask input[type="checkbox"] {
-  position: absolute;
+  /* position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
   border: 0;
   height: 1px;
   width: 1px;
-  overflow: hidden;
+  overflow: hidden; */
+  position: absolute;
+  visibility: hidden;
+  z-index: 2;
 }
 
 :is(.icoUnchecked, .icoChecked) {
+  z-index: 1;
   color: var(--ico-cl, inherit);
 }
 
